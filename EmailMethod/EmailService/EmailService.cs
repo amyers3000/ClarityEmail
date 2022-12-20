@@ -8,8 +8,9 @@ namespace EmailMethod;
 public class EmailService : IEmailService
 {
 
-    public async Task<bool> Send(EmailDto request, string username, string password)
+    public async Task<ServiceResponse<EmailDto>> Send(EmailDto request, string username, string password)
     {
+        var response = new ServiceResponse<EmailDto>();
         try
         {
             var email = new MimeMessage();
@@ -17,18 +18,35 @@ public class EmailService : IEmailService
             email.To.Add(MailboxAddress.Parse(request.Recipient));
             email.Subject = "Test Email Subject";
             email.Body = new TextPart(TextFormat.Text) { Text = request.Body };
+            for (int i = 0; i <= 3; i++)
+            {
+                try
+                {
+                    using var smtp = new SmtpClient();
+                    await smtp.ConnectAsync("smtp.ethereal.email", 587, SecureSocketOptions.StartTls);
+                    await smtp.AuthenticateAsync(username, password);
+                    await smtp.SendAsync(email);
 
-            using var smtp = new SmtpClient();
-            await smtp.ConnectAsync("smtp.ethereal.email", 587, SecureSocketOptions.StartTls);
-            await smtp.AuthenticateAsync(username, password);
-            await smtp.SendAsync(email);
-            await smtp.DisconnectAsync(true);
+                    response.Success = true;
+                    response.Data = request;
+                    response.Message = "Message Sent";
+
+                    return response;
+                }
+                catch (Exception ex)
+                {
+                    response.Success = false;
+                    response.Message = ex.Message;
+                }
+            }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
-            return false;
+            response.Success = false;
+            response.Message = ex.Message;
         }
-        return true;
+        return response;
+       
     }
 
 }

@@ -7,6 +7,8 @@ using MailKit.Net.Smtp;
 using MimeKit.Text;
 using MailKit.Security;
 using EmailMethod.DTOs;
+using ClarityEmail.Data;
+using AutoMapper;
 
 namespace ClarityEmail.Controllers
 {
@@ -17,12 +19,15 @@ namespace ClarityEmail.Controllers
 	{
 		private readonly IEmailService _emailService;
 		private readonly IConfiguration _config;
+        private readonly DataContext _context;
+        private readonly IMapper _mapper;
 
-		public EmailController( IEmailService emailService, IConfiguration config )
+        public EmailController( IEmailService emailService, IConfiguration config, DataContext context, IMapper mapper )
 		{
 			_emailService = emailService;
 			_config = config;
-
+			_context = context;
+			_mapper = mapper;
 
         }
 
@@ -37,13 +42,16 @@ namespace ClarityEmail.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Send(EmailDto request)
 		{
-            var success = await _emailService.Send(request, _config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
-			if (success)
+            var response = await _emailService.Send(request, _config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
+
+			Email email = _mapper.Map<Email>(request);
+
+			if (response.Success)
 			{
-				return Ok();
+				return Ok(response);
 			}
 
-			return BadRequest();
+			return BadRequest(response);
 		}
 	}
 
