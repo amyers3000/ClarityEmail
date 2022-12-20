@@ -2,7 +2,7 @@
 using MailKit.Net.Smtp;
 using MimeKit.Text;
 using MailKit.Security;
-using EmailMethod.Models;
+using EmailMethod.DTOs;
 
 namespace EmailMethod;
 public class EmailService : IEmailService

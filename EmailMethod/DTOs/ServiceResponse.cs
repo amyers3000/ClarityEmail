@@ -1,5 +1,5 @@
 ﻿using System;
-namespace EmailMethod.Models;
+namespace EmailMethod.DTOs;
 
 	
     public class ServiceResponse<T>
