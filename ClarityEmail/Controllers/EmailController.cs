@@ -9,6 +9,7 @@ using MailKit.Security;
 using EmailMethod.DTOs;
 using ClarityEmail.Data;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClarityEmail.Controllers
 {
@@ -32,21 +33,28 @@ namespace ClarityEmail.Controllers
         }
 
 		[HttpGet]
-		public ActionResult<int> Get()
+		public async Task<ActionResult<ServiceResponse<List<Email>>>> GetAll()
 		{
-			
-			return Ok();
+			var response = new ServiceResponse<List<Email>>();
+			var emailList = await _context.Emails.ToListAsync();
+			response.Data = emailList;
+            return Ok(response);
 
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Send(EmailDto request)
+		public async Task<ActionResult<ServiceResponse<EmailDto>>> Send(EmailDto request)
 		{
             var response = await _emailService.Send(request, _config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
 
 			Email email = _mapper.Map<Email>(request);
+			email.Sender = _config.GetSection("EmailUsername").Value;
+			email.Success = response.Success;
 
-			if (response.Success)
+			_context.Emails.Add(email);
+			await _context.SaveChangesAsync();
+
+            if (response.Success)
 			{
 				return Ok(response);
 			}

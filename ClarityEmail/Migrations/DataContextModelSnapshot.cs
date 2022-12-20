@@ -23,9 +23,6 @@ namespace ClarityEmail.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Attempt")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Body")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -38,6 +35,10 @@ namespace ClarityEmail.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Sender")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Subject")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
