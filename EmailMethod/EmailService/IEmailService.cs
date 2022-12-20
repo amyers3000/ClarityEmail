@@ -5,7 +5,7 @@ namespace EmailMethod
 {
 	public interface IEmailService
 	{
-		void Send(EmailDto request, string username, string password);
+        Task<bool> Send(EmailDto request, string username, string password);
 		
 	}
 }
