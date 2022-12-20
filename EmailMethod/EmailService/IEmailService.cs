@@ -1,5 +1,5 @@
 ﻿using System;
-using EmailMethod.DTOs;
+using EmailMethod.Models;
 
 namespace EmailMethod
 {
