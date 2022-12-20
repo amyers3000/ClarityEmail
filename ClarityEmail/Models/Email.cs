@@ -7,9 +7,9 @@ namespace ClarityEmail.Models
 		public string Sender { get; set; } = string.Empty;
 		public string Recipient { get; set; } = string.Empty;
 		public string Body { get; set; } = string.Empty;
-		public DateTime Date { get; set; }
+		public DateTime Date { get; set; } = DateTime.Now;
 		public bool Success { get; set; } = false;
-		public int Attempt { get; set; } = 0;
-	}
+
+    }
 }
 

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="MailKit" />
+    <None Remove="EmailService\" />
+    <None Remove="GetEmailDto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="3.4.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="EmailService\" />
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+</Project>

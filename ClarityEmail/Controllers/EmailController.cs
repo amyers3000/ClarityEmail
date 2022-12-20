@@ -1,6 +1,11 @@
 ﻿using System;
 using ClarityEmail.Models;
 using Microsoft.AspNetCore.Mvc;
+using EmailMethod;
+using MimeKit;
+using MailKit.Net.Smtp;
+using MimeKit.Text;
+using MailKit.Security;
 
 namespace ClarityEmail.Controllers
 {
@@ -14,15 +19,17 @@ namespace ClarityEmail.Controllers
 		}
 
 		[HttpGet]
-		public ActionResult<List<Email>> Get()
+		public ActionResult<int> Get()
 		{
+			
 			return Ok();
 
 		}
 
 		[HttpPost]
-		public ActionResult<List<Email>> Send()
+		public IActionResult Send(string body)
 		{
+
 			return Ok();
 		}
 	}

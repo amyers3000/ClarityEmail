@@ -17,6 +17,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.1" />
+    <PackageReference Include="MailKit" Version="3.4.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,10 +28,17 @@
     <None Remove="Data\" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Sqlite" />
+    <None Remove="EmailMethod" />
+    <None Remove="MailKit" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EmailMethod">
+      <HintPath>..\EmailMethod\bin\Debug\net7.0\EmailMethod.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>
