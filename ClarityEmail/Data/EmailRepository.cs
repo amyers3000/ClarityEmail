@@ -5,6 +5,7 @@ using EmailMethod;
 using EmailMethod.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 
 namespace ClarityEmail.Data
@@ -23,12 +24,14 @@ namespace ClarityEmail.Data
             _context = context;
             _mapper = mapper;
         }
-        public async Task<ServiceResponse<List<Email>>> GetAll()
+        public async Task<ServiceResponse<List<ViewEmailDto>>> GetAll()
         {
-            var response = new ServiceResponse<List<Email>>();
+            var response = new ServiceResponse<List<ViewEmailDto>>();
             try
             {
-                var emailList = await _context.Emails.ToListAsync();
+                var emailListDb = await _context.Emails.ToListAsync();
+                var emailList = emailListDb.Select(c => _mapper.Map<ViewEmailDto>(c)).ToList();
+
                 response.Data = emailList;
             }
             catch (Exception ex)

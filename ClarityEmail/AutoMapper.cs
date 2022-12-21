@@ -10,6 +10,7 @@ namespace ClarityEmail
 		public AutoMapper()
 		{
 			CreateMap<EmailDto,Email>();
+			CreateMap<Email, ViewEmailDto>();
 		}
 	}
 }

@@ -8,7 +8,7 @@ namespace ClarityEmail.Data
 {
 	public interface IEmailRepository
 	{
-        Task<ServiceResponse<List<Email>>> GetAll();
+        Task<ServiceResponse<List<ViewEmailDto>>> GetAll();
 
         Task<ServiceResponse<EmailDto>> Send(EmailDto request);
 

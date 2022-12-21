@@ -19,7 +19,7 @@ namespace ClarityEmail.Controllers
 
         }
 
-		[HttpGet]
+		[HttpGet("Logs")]
 		public async Task<ActionResult<ServiceResponse<List<Email>>>> GetAll()
 		{
 			var response = await _emailRepo.GetAll();
