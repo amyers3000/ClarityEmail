@@ -53,6 +53,7 @@ $ cd ClaritySite
 $ npm install
 $ npm start
 ```
+![Email](/Assets/Screenshot%202022-12-21%20at%2011.15.06%20AM.png)
 
 Default sender info provided in appSettings.Development.json. Feel free to modify host, username, and password.
 
