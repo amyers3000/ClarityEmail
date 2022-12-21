@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Email } from '../app/email'
 import { apiCall } from '../app/lib'
 import Error from './Error'
+import Success from './Success'
 
 
 interface IError {
@@ -18,6 +19,7 @@ const EmailForm = () => {
         Body: ""
     })
     let [error, setError] = useState<IError>({display: false, message: ''})
+    let [success, setSuccess] = useState(false)
 
     function handleSubmit(e: React.SyntheticEvent) {
         e.preventDefault()
@@ -25,6 +27,7 @@ const EmailForm = () => {
             .then(res => res.json())
             .then(response => {
                 if(response.success) {
+                    setSuccess(true)
                     setData({
                         Recipient: "",
                         Subject: "",
@@ -40,6 +43,7 @@ const EmailForm = () => {
     return (
         <Container component='main' maxWidth='xs' sx={{ pt: 10 }}>
             {error.display && <Error error={error} />}
+            {success && <Success/>}
             <Box component="form" autoComplete='off' onSubmit={handleSubmit} sx={{ mt: 3 }}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
@@ -66,13 +70,15 @@ const EmailForm = () => {
                             onChange={e => setData({ ...data, Subject: e.target.value })}
                         />
                     </Grid>
-                    <Grid item xs={12}  sx={{height:100}}>
+                    <Grid item xs={12}>
                         <TextField
                             required
                             fullWidth
                             name="Body"
                             label="Body"
                             id="Body"
+                            multiline
+                            rows={6}
                             value={data.Body}
                             onChange={e => setData({ ...data, Body: e.target.value })}
                         />
