@@ -82,6 +82,7 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 <table>
 <tr><th>Email Model</th><th>EmailDto</th><th>ViewEmailDto</th></tr>
 <tr><td>
+
 | Type | Data |
 | --- | ---- |
 | int | Id |
@@ -91,15 +92,19 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Body |
 | string | Date |
 | bool | Success |
+
 </td>
 <td>
+
 | Type | Data |
 | --- | ---- |
 | string | Recipient |
 | string | Subject |
 | string | Body |
+
 </td>
 <td>
+
 | Type | Data |
 | ---- | --- |
 | string | Sender |
@@ -108,8 +113,8 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Body |
 | string | Date |
 | bool | Success |
+
 </td>
-<td>
 </tr>
 </table>
 
