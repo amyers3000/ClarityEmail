@@ -1,12 +1,12 @@
 # ClarityEmail
 ***
 ## Table of Contents
-*[General Info](#general-info)
-*[Tools and Technologies](#tools-and-technologies)
-*[Setup](#setup)
-*[Routes and Data](#routes-and-data)
-*[Testing](#testing)
-*[Improvements](#improvements)
+* [General Info](#general-info)
+* [Tools and Technologies](#tools-and-technologies)
+* [Setup](#setup)
+* [Routes and Data](#routes-and-data)
+* [Testing](#testing)
+* [Improvements](#improvements)
 
 ## General-Info
 
