@@ -1,22 +1,17 @@
-import { Email } from "./email"
-let BASE_URL: string = 'https://localhost:7031/api/Email'
+let BASE_URL = 'http://localhost:5236/api/Email'
 
 
 
-export function apiCall(method: string, payload: Email , api?: string) {
+export function apiCall(method: string, payload: unknown) {
     const options: RequestInit = {
         method: method,
         headers: {
             'Content-Type': 'application/json'
         },
     }
-    if( method === 'POST') {
+    if (method === 'POST' || method === "PUT") {
         options.body = JSON.stringify(payload)
     }
-    if(api){
-        return fetch(`${BASE_URL}/${api}`, options)
-    }else{
-        return fetch(`${BASE_URL}`, options)
-    }
+    return fetch(`${BASE_URL}`, options)
+    
 }
-

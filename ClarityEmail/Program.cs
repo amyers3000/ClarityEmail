@@ -1,6 +1,8 @@
 using ClarityEmail.Data;
 using Microsoft.EntityFrameworkCore;
 using EmailMethod;
+using Microsoft.AspNetCore.Builder;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,9 +19,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<IEmailRepository, EmailRepository>();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
+builder.Services.AddCors(p=>p.AddDefaultPolicy(build =>
+{
+    build.WithOrigins("http://localhost:3000");
+    build.AllowAnyMethod();
+    build.AllowAnyHeader();
+    build.AllowCredentials();
+}));
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -28,7 +38,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
+
+app.UseCors();
 
 app.UseAuthorization();
 
