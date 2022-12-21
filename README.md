@@ -109,6 +109,7 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Date |
 | bool | Success |
 </td>
+<td>
 </tr>
 </table>
 
