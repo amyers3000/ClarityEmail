@@ -73,11 +73,17 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 
 ## Routes and Data
 
+<table>
+<tr><th>Routes </th><th>/th></tr>
+
 | Method | Route | Description |
 | ----- | ----- | -------- |
 | Post | /api/Email | Send email to desired recipient that contains both subject and email |
 | Get  | /api/Email | View emails logs. Logs include success of message and a timestamp |
 
+<table>
+<tr><th>Email Model</th><th>EmailDto</th><th>ViewEmailDto</th></tr>
+<tr><td>
 ### Email Model
 
 | Type | Data |
@@ -89,7 +95,8 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Body |
 | string | Date |
 | bool | Success |
-
+</td>
+<td>
 ### EmailDto
 
 | Type | Data |
@@ -97,7 +104,8 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Recipient |
 | string | Subject |
 | string | Body |
-
+</td>
+<td>
 ### ViewEmailDto
 
 | Type | Data |
@@ -108,13 +116,9 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Body |
 | string | Date |
 | bool | Success |
-
-### Response Object
-| Type | Data |
-| --- | --- |
-| T (Generic) | Data |
-| string | Message |
-| bool | Success
+</td>
+</tr>
+</table>
 
 ## Testing
 
