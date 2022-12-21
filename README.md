@@ -21,12 +21,13 @@ and can be sent in succession or over a period of time.
 * Please store all credentials in an appsettings instead of hardcoded.
 * At minimum that method/dll should be called from a console application.
 * EXTRA Credit if a front end (wpf/asp.net web application/etc...) calls the API to send the email.
+* Extra Credit if attached to an API that can be called from Postman.
 
 Note: DLL can be found in EmailMethod folder; React(TypeScript) frontend can be found in EmailSite; API can be found in ClarityEmail
 
 ## Tools and Technologies
 
-React: v18.2 | Material-UI: v5.11 | .NET: v7 | MailKit: v3.4.3 | C# | TypeScript | SQLite: v7.01 | EntityFrameworks: v7.01 | AutoMapper: v12.0.0
+React | Material-UI | .NET | MailKit| C# | TypeScript | SQLite | EntityFrameworks| AutoMapper
 
 ## SetUp
 
@@ -121,6 +122,6 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 
 ## Testing
 
-Run tests in Postman or check routes on Swagger!
+Run the test collection in Postman or check routes on Swagger!
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20982764-7307a0b4-ba1f-43a4-a8d0-e147580a542a?action=collection%2Ffork&collection-url=entityId%3D20982764-7307a0b4-ba1f-43a4-a8d0-e147580a542a%26entityType%3Dcollection%26workspaceId%3Dadf8db36-86c0-4737-b4be-33ed4a311c12#?env%5BEmail%20Variables%5D=W3sia2V5IjoidXNlcm5hbWUiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJhbnkifV0=)
