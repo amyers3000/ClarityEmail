@@ -5,7 +5,7 @@ using EmailMethod;
 using EmailMethod.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using static Org.BouncyCastle.Math.EC.ECCurve;
+
 
 namespace ClarityEmail.Data
 {
@@ -23,7 +23,7 @@ namespace ClarityEmail.Data
             _context = context;
             _mapper = mapper;
         }
-        public async Task<ActionResult<ServiceResponse<List<Email>>>> GetAll()
+        public async Task<ServiceResponse<List<Email>>> GetAll()
         {
             var response = new ServiceResponse<List<Email>>();
             try
@@ -39,8 +39,9 @@ namespace ClarityEmail.Data
             return response;
         }
 
-        public async Task<ActionResult<ServiceResponse<EmailDto>>> Send(EmailDto request)
+        public async Task<ServiceResponse<EmailDto>> Send(EmailDto request)
         {
+            
             var response = await _emailService.Send(request, _config.GetSection("EmailUsername").Value, _config.GetSection("EmailPassword").Value);
 
             try

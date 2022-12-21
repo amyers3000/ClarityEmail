@@ -22,17 +22,18 @@ namespace ClarityEmail.Controllers
 		[HttpGet]
 		public async Task<ActionResult<ServiceResponse<List<Email>>>> GetAll()
 		{
-			
-            return Ok(await _emailRepo.GetAll());
+			var response = await _emailRepo.GetAll();
+			return response.Success ? Ok(response) : BadRequest(response);
 
 		}
 
 		[HttpPost]
 		public async Task<ActionResult<ServiceResponse<EmailDto>>> Send(EmailDto request)
 		{
-			return Ok (await _emailRepo.Send(request));
+			var response = await _emailRepo.Send(request);
+            return response.Success ? Ok(response) : BadRequest(response);
 
-		}
+        }
 	}
 
 }
