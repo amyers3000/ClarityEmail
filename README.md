@@ -6,7 +6,7 @@
 * [Setup](#setup)
 * [Routes and Data](#routes-and-data)
 * [Testing](#testing)
-* [Improvements](#improvements)
+
 
 ## General-Info
 
@@ -74,14 +74,14 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 ## Routes and Data
 
 | Method | Route | Description |
-| ****** | ***** | *********** |
+| ----- | ----- | -------- |
 | Post | /api/Email | Send email to desired recipient that contains both subject and email |
 | Get  | /api/Email | View emails logs. Logs include success of message and a timestamp |
 
 ### Email Model
 
 | Type | Data |
-| **** | **** |
+| --- | ---- |
 | int | Id |
 | string | Sender |
 | string | Recipient |
@@ -93,7 +93,7 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 ### EmailDto
 
 | Type | Data |
-| **** | **** |
+| --- | ---- |
 | string | Recipient |
 | string | Subject |
 | string | Body |
@@ -101,7 +101,7 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 ### ViewEmailDto
 
 | Type | Data |
-| **** | **** |
+| ---- | --- |
 | string | Sender |
 | string | Recipient |
 | string | Subject |
@@ -111,15 +111,13 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 
 ### Response Object
 | Type | Data |
-| **** | **** |
+| --- | --- |
 | T (Generic) | Data |
 | string | Message |
 | bool | Success
 
 ## Testing
 
-
-Postman API Test collection("https://alex-email-clarity.postman.co/workspace/Team-Workspace~0ffa55bf-f22d-471d-8b81-6788fc858a95/api/8bdf9e98-f34e-42cc-b2db-61de02c3454d")
-
+Run tests in Postman or check routes on Swagger!
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/20982764-7307a0b4-ba1f-43a4-a8d0-e147580a542a?action=collection%2Ffork&collection-url=entityId%3D20982764-7307a0b4-ba1f-43a4-a8d0-e147580a542a%26entityType%3Dcollection%26workspaceId%3Dadf8db36-86c0-4737-b4be-33ed4a311c12#?env%5BEmail%20Variables%5D=W3sia2V5IjoidXNlcm5hbWUiLCJ2YWx1ZSI6IiIsImVuYWJsZWQiOnRydWUsInR5cGUiOiJhbnkifV0=)
