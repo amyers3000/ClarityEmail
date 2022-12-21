@@ -5,6 +5,8 @@ VisualStudioVersion = 25.0.1704.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClarityEmail", "ClarityEmail\ClarityEmail.csproj", "{AEF8D551-8F21-407E-8754-E361F31AF56F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E0E80E1B-7476-4C88-99D5-9F6BF7A8EA52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
