@@ -80,7 +80,7 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | Get  | /api/Email | View emails logs. Logs include success of message and a timestamp |
 
 <table>
-<tr><th>Email Model</th><th>EmailDto</th><th>ViewEmailDto</th><th>Response Object</th></tr>
+<tr><th>Email Model</th><th>EmailDto</th><th>ViewEmailDto</th></tr>
 <tr><td>
 | Type | Data |
 | --- | ---- |
@@ -107,13 +107,6 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 | string | Subject |
 | string | Body |
 | string | Date |
-| bool | Success |
-</td>
-<td>
-| Type | Data |
-| ---- | --- |
-| T (generic) | Data |
-| string | Message |
 | bool | Success |
 </td>
 </tr>
