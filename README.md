@@ -10,18 +10,16 @@
 
 ## General-Info
 
-An API that both sends and logs emails. This backend satisfies the following requirments:
+An API that both sends and logs emails. This backend has the following features:
 
-* Send Email Method should be in a dll that can be reused throughout different applications and entry
+* Send Email Method is in a dll that can be reused throughout different applications and entry
 points.
-* Email sender, recipient, subject, and body (not attachments), and date must be logged/stored indefinitely
+* Email sender, recipient, subject, and body (not attachments), and date arelogged/stored indefinitely
 with status of send attempt.
-* If email fails to send it should either be retried until success or a max of 3 times whichever comes first,
-and can be sent in succession or over a period of time.
-* Please store all credentials in an appsettings instead of hardcoded.
-* At minimum that method/dll should be called from a console application.
-* EXTRA Credit if a front end (wpf/asp.net web application/etc...) calls the API to send the email.
-* Extra Credit if attached to an API that can be called from Postman.
+* If email fails to send it will be rety until success or a max of 3 times whichever comes first
+* Credentials are stored in appsettings
+* Front end calls the API to send the email.
+
 
 Note: DLL can be found in EmailMethod folder; React(TypeScript) frontend can be found in EmailSite; API can be found in ClarityEmail
 
