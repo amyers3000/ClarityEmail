@@ -52,7 +52,7 @@ const EmailForm = () => {
                             required
                             fullWidth
                             id='Recipient'
-                            // type="email"
+                            type="email"
                             label='Recipient'
                             value={data.Recipient}
                             onChange={e => setData({ ...data, Recipient: e.target.value })}

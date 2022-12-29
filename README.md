@@ -70,6 +70,10 @@ Note: For testing purposes Etheral("https://ethereal.email/"), a fake SMTP servi
 
 ![Etheral](/Assets/Screenshot%202022-12-21%20at%208.12.38%20AM.png)
 
+Below is a test Etheral recipitent account. Use this information to check if the email was successfully received.
+
+![EtheralRecipient](/Assets/Screenshot%202022-12-29%20at%208.40.02%20AM.png)
+
 
 ## Routes and Data
 
